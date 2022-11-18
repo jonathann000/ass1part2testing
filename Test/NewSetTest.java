@@ -20,7 +20,7 @@ class NewSetTest {
 
     @AfterEach
     void tearDown() {
-        Set s = new Set();
+        NewSet s = new NewSet();
     }
 
     @Test
@@ -60,6 +60,7 @@ class NewSetTest {
         assertTrue(s.member(1));
         assertTrue(s.member(2));
         assertTrue(s.member(3));
+        assertFalse(s.member(0));
         assertFalse(s.member(4));
     }
 
