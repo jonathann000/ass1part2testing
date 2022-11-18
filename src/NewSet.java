@@ -75,7 +75,7 @@ public class NewSet {
             for (int j = 0; j < a.size(); j++) {
                 vi = a.get(i);
                 vj = a.get(j);
-                //Check if intbinaryoperator is division
+                // Changed to
                 if ((member(f.applyAsInt(vi, vj)) && !(vi == vj))) return true;
             }
         }
