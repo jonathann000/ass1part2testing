@@ -88,25 +88,51 @@ class NewSetTest {
         s.insert(1);
         s.insert(2);
         s.insert(3);
-        assertTrue(s.distinctClosed((a, b) -> a + b));
-        assertTrue(s.distinctClosed((a, b) -> a - b));
+        assertFalse(s.distinctClosed((a, b) -> a + b));
+        assertFalse(s.distinctClosed((a, b) -> a - b));
+
         NewSet s2 = new NewSet();
         s2.insert(1);
         s2.insert(2);
         s2.insert(-1);
-        assertTrue(s2.distinctClosed((a, b) -> a + b));
-        assertTrue(s2.distinctClosed((a, b) -> a - b));
+        assertFalse(s2.distinctClosed((a, b) -> a + b));
+        assertFalse(s2.distinctClosed((a, b) -> a - b));
+
         NewSet s3 = new NewSet();
         s3.insert(0);
         s3.insert(1);
         assertTrue(s3.distinctClosed((a,b) -> a+b));
         assertTrue(s3.distinctClosed((a,b) -> a*b));
-        NewSet s4 = new NewSet();
-        s4.insert(1);
-        s4.insert(5);
+        assertFalse(s3.distinctClosed((a,b) -> a-b));
 
-        assertFalse(s4.distinctClosed((a,b) -> a+b));
+        NewSet s4 = new NewSet();
+        s4.insert(-1);
+        s4.insert(0);
+        s4.insert(1);
+        assertTrue(s4.distinctClosed((a,b) -> a+b));
         assertFalse(s4.distinctClosed((a,b) -> a-b));
+
+        NewSet s5 = new NewSet();
+        s5.insert(-5);
+        s5.insert(-2);
+        s5.insert(-3);
+        s5.insert(10);
+        assertFalse(s5.distinctClosed((a,b) -> a+b));
+        assertFalse(s5.distinctClosed((a,b) -> a-b));
+
+        NewSet s6 = new NewSet();
+        s6.insert(1);
+        assertFalse(s6.distinctClosed((a,b) -> a+b));
+        assertFalse(s6.distinctClosed((a,b) -> a-b));
+        assertFalse(s6.distinctClosed((a,b) -> a*b));
+
+        NewSet s7 = new NewSet();
+        assertFalse(s7.distinctClosed((a,b) -> a+b));
+        assertFalse(s7.distinctClosed((a,b) -> a-b));
+
     }
+
+
+
 
 }

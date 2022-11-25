@@ -69,15 +69,22 @@ public class NewSet {
     // Try with:
     //   (a, b) -> a + b;
     //   (a, b) -> a - b;
+
+    // for every element in the set, return true if f(x, y) is in the set
+
     public boolean distinctClosed(IntBinaryOperator f) {
+        if (a.size() < 2) {
+            System.out.println("Set is too small");
+            return false;
+        }
         int vi,vj;
         for (int i = 0; i < a.size(); i++) {
             for (int j = 0; j < a.size(); j++) {
                 vi = a.get(i);
                 vj = a.get(j);
-                if ((member(f.applyAsInt(vi, vj)) && !(vi == vj))) return true;
+                if (!(member(f.applyAsInt(vi, vj))) && (vi != vj)) return false;
             }
         }
-        return false;
+        return true;
     }
 }
