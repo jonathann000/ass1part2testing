@@ -2,25 +2,23 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-class NewSetTest {
-    NewSet s;
+class SetTest {
+    Set s;
 
-    public NewSetTest() {
-        s = new NewSet();
+    public SetTest() {
+        s = new Set();
     }
 
     @BeforeEach
     void setUp() {
-        s = new NewSet();
+        s = new Set();
     }
 
     @AfterEach
     void tearDown() {
-        NewSet s = new NewSet();
+        Set s = new Set();
     }
 
     @Test
@@ -71,7 +69,7 @@ class NewSetTest {
         s.insert(2);
         s.insert(3);
         s.insert(5);
-        NewSet s2 = new NewSet();
+        Set s2 = new Set();
         s2.insert(2);
         s2.insert(3);
         s2.insert(4);
@@ -91,28 +89,28 @@ class NewSetTest {
         assertFalse(s.distinctClosed((a, b) -> a + b));
         assertFalse(s.distinctClosed((a, b) -> a - b));
 
-        NewSet s2 = new NewSet();
+        Set s2 = new Set();
         s2.insert(1);
         s2.insert(2);
         s2.insert(-1);
         assertFalse(s2.distinctClosed((a, b) -> a + b));
         assertFalse(s2.distinctClosed((a, b) -> a - b));
 
-        NewSet s3 = new NewSet();
+        Set s3 = new Set();
         s3.insert(0);
         s3.insert(1);
         assertTrue(s3.distinctClosed((a,b) -> a+b));
         assertTrue(s3.distinctClosed((a,b) -> a*b));
         assertFalse(s3.distinctClosed((a,b) -> a-b));
 
-        NewSet s4 = new NewSet();
+        Set s4 = new Set();
         s4.insert(-1);
         s4.insert(0);
         s4.insert(1);
         assertTrue(s4.distinctClosed((a,b) -> a+b));
         assertFalse(s4.distinctClosed((a,b) -> a-b));
 
-        NewSet s5 = new NewSet();
+        Set s5 = new Set();
         s5.insert(-5);
         s5.insert(-2);
         s5.insert(-3);
@@ -120,13 +118,13 @@ class NewSetTest {
         assertFalse(s5.distinctClosed((a,b) -> a+b));
         assertFalse(s5.distinctClosed((a,b) -> a-b));
 
-        NewSet s6 = new NewSet();
+        Set s6 = new Set();
         s6.insert(1);
         assertFalse(s6.distinctClosed((a,b) -> a+b));
         assertFalse(s6.distinctClosed((a,b) -> a-b));
         assertFalse(s6.distinctClosed((a,b) -> a*b));
 
-        NewSet s7 = new NewSet();
+        Set s7 = new Set();
         assertFalse(s7.distinctClosed((a,b) -> a+b));
         assertFalse(s7.distinctClosed((a,b) -> a-b));
 

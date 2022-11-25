@@ -1,10 +1,10 @@
 import java.util.*;
 import java.util.function.IntBinaryOperator;
 
-public class NewSet {
+public class Set {
     private final ArrayList<Integer> a;
 
-    public NewSet() {
+    public Set() {
         a = new ArrayList<Integer>();
     }
 
@@ -46,7 +46,7 @@ public class NewSet {
         return false;
     }
 
-    public void intersect(NewSet s) {
+    public void intersect(Set s) {
         int i = 0;
         for(int j = 0 ; i < a.size() && j < s.a.size();) {
             if (a.get(i).equals(s.a.get(j))){

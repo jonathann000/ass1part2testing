@@ -1,0 +1,18 @@
+Explanation of insert():
+In the method insert we replaced the breaks in the for loop with return statements instead,
+this is because the break caused the program to add the element either way.
+
+Explanation of intersect():
+In the intersect method we initiate int i outside of the for loop so that we can remove the
+rest of the elements afterwards. Before this change the method had a bug where if the set
+calling the method was longer than the one it compared to the set returned would contain the
+elements on index spaces larger than the other set.
+
+Explanation of distinctClosed():
+We changed the nested for loop so that both i and j instantiated at zero,
+this is because the - operator isn’t commutative so we need to check every combination of elements.
+We changed the if statement so that the method checks both that the result of the operation is not
+a part of the set and that the elements that the operator is applied to isn’t the same.
+If the if statement returns false for all combinations in the set the method returns true.
+We also made it a requirement that the set would contain 2 or more elements, otherwise the
+function isn’t applicable in our point of view.
